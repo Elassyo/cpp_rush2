@@ -16,7 +16,7 @@ Object::~Object()
 {
 }
 
-std::string Object::getClassName() const
+const std::string &Object::getClassName() const
 {
 	return (className);
 }

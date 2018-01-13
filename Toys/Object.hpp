@@ -16,9 +16,9 @@ public :
     explicit Object(std::string _className);
     virtual ~Object();
 
-    std::string getClassName() const;
+    const std::string &getClassName() const;
 
-private :
+protected :
     std::string className;
 };
 
