@@ -36,14 +36,15 @@ WarpClient::~WarpClient()
 void WarpClient::receiveAddr()
 {
 	_addrListener->setTimeout(50);
-	std::string ret = _addrListener->receiveMessage();
-	std::vector<std::string>::iterator it;
-	for (it = _addrList.begin(); it != _addrList.end(); it++) {
-		if (*it == ret)
-			return;
-	}
-	if (ret != "")
+	std::string ret;
+	while ((ret = _addrListener->receiveMessage()) != "") {
+		std::vector<std::string>::iterator it;
+		for (it = _addrList.begin(); it != _addrList.end(); it++) {
+			if (*it == ret)
+				return;
+		}
 		_addrList.push_back(ret);
+	}
 	_addrListener->setTimeout();
 }
 
