@@ -8,17 +8,17 @@
 #include <iostream>
 #include "Object.hpp"
 #include "LittlePony.hpp"
-#include "Teddy.hpp"
+#include "../Elves/Teddy.hpp"
 
 Object **MyUnitTests()
 {
 	auto array = new Object*[2];
+
 	array[0] = new LittlePony("happy pony");
 	array[1] = new Teddy("cuddles");
 	return (array);
 }
 
-/*
 int main()
 {
 	Object **array = MyUnitTests();
@@ -34,4 +34,3 @@ int main()
 	delete[] array;
 	return (0);
 }
-*/

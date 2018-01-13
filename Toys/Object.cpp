@@ -6,7 +6,7 @@
 //
 
 #include "Object.hpp"
-#include "Toy.hpp"
+#include "../Elves/Toy.hpp"
 
 Object::Object(std::string _className) : className(_className)
 {
