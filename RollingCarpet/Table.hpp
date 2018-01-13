@@ -11,13 +11,15 @@
 #include <iostream>
 #include <vector>
 #include "../BoxStory/Object.hpp"
+#include "ITable.hpp"
 
-class Table
+class Table : public ITable
 {
 public:
-	Object *takeObject(unsigned int);
-	void putObject(Object *);
+	Object *takeObject(unsigned int) override;
+	void putObject(Object *) override;
 	virtual ~Table();
+	ITable *createTable() override;
 	std::vector<Object *> _items;
 
 private:

@@ -36,3 +36,8 @@ void Table::putObject(Object *object)
 		return;
 	}
 }
+
+ITable *Table::createTable()
+{
+	return (new Table());
+}

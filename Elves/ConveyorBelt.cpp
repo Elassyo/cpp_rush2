@@ -30,3 +30,25 @@ void ConveyorBelt::putObject(Object *object)
 	}
 	this->_item = object;
 }
+
+void ConveyorBelt::pressIn(Object *object)
+{
+	this->putObject(object);
+}
+
+void ConveyorBelt::pressOut()
+{
+	if (!this->_item) {
+		std::cerr << this->_className << " : ERROR : "
+		          << " : There is no object to be sent to Santa !"
+		          << std::endl;
+		return;
+	}
+	delete(this->_item);
+	this->_item = NULL;
+}
+
+IConveyorBelt *ConveyorBelt::createConveyorBelt()
+{
+	return (new ConveyorBelt());
+}

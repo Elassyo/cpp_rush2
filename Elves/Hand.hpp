@@ -16,8 +16,9 @@ public :
 	Hand();
 	~Hand();
 
-	void pushInButton(ConveyorBelt *conveyorBelt);
+	void pushInButton(ConveyorBelt *conveyorBelt, Object *object);
 	void pushOutButton(ConveyorBelt *conveyorBelt);
+
 };
 
 

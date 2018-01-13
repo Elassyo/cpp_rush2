@@ -10,12 +10,17 @@
 
 #include <iostream
 #include "../BoxStory/Object.hpp"
+#include "IConveyorBelt.hpp"
 
-class ConveyorBelt {
+class ConveyorBelt : public IConveyorBelt
+{
 public:
-	Object *takeObject();
-	void putObject(Object *);
+	Object *takeObject() override;
+	void putObject(Object *) override;
 	Object *_item = NULL;
+	void pressIn(Object *object) override;
+	void pressOut() override;
+	IConveyorBelt *createConveyorBelt() override;
 
 private:
 	std::string _className = "ConveyorBelt";
