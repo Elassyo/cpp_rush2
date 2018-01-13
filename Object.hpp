@@ -16,8 +16,9 @@ public :
 	explicit Object(std::string _className);
 	virtual ~Object();
 
-	Xml::XmlElementNode *serialize(std::string name) const override ;
-//	virtual void deserialize(const Xml::XmlElementNode *node) override ;
+	virtual Object *clone() const = 0;
+	Xml::XmlElementNode *serialize(std::string name) const override;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
 	const std::string &getClassName() const;
 

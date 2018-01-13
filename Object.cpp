@@ -26,3 +26,7 @@ Xml::XmlElementNode *Object::serialize(const std::string name) const
 	node->addNode("className", this->className);
 	return (node);
 }
+
+void Object::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
+}

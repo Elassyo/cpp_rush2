@@ -14,6 +14,9 @@ class Box : public Wrap {
 public:
 	Box();
 
+	Object *clone() const;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
+
 	void closeMe();
 };
 

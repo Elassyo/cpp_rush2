@@ -13,11 +13,16 @@ LittlePony::LittlePony(std::string name) :
 {
 }
 
-LittlePony::~LittlePony()
-{
-}
-
 void LittlePony::isTaken()
 {
 	std::cout << "yo man" << std::endl;
+}
+
+Object *LittlePony::clone() const
+{
+	return (NULL);
+}
+
+void LittlePony::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
 }

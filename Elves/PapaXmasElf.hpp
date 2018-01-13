@@ -12,8 +12,6 @@
 
 class PapaXmasElf : public IElf {
 public:
-	PapaXmasElf();
-
 	void putOnTable(Object *object) override;
 	void putOnBelt(Object *object) override;
 	void takeFromTable(unsigned int idx) override;

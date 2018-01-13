@@ -51,3 +51,7 @@ Xml::XmlElementNode *Wrap::serialize(const std::string name) const
 	return (res);
 
 }
+
+void Wrap::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
+}

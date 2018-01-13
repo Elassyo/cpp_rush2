@@ -11,3 +11,12 @@ GiftPaper::GiftPaper() :
 	Wrap("GiftPaper")
 {
 }
+
+Object *GiftPaper::clone() const
+{
+	return (NULL);
+}
+
+void GiftPaper::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
+}

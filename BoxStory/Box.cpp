@@ -16,3 +16,12 @@ void Box::closeMe()
 {
 	this->_isOpen = false;
 }
+
+Object *Box::clone() const
+{
+	return (NULL);
+}
+
+void Box::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
+}

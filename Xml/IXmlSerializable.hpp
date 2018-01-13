@@ -9,7 +9,9 @@
 	#define IXML_SERIALIZABLE_HPP_
 
 	#include <string>
-#include "XmlElementNode.hpp"
+	#include "XmlElementNode.hpp"
+
+class ObjectDB;
 
 namespace Xml {
 
@@ -18,7 +20,7 @@ public:
 	virtual ~IXmlSerializable() {}
 
 	virtual XmlElementNode *serialize(const std::string name) const = 0;
-	//virtual void deserialize(const XmlElementNode *node) = 0;
+	virtual void deserialize(const ObjectDB *, const XmlElementNode *) = 0;
 };
 
 } /* namespace Xml */

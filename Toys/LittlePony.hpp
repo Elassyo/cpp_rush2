@@ -13,7 +13,9 @@
 class LittlePony : public Toy {
 public :
 	LittlePony(std::string name);
-	~LittlePony();
+
+	Object *clone() const;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
 	void isTaken();
 };

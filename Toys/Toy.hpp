@@ -19,7 +19,7 @@ public :
 	virtual void isTaken();
 
 	Xml::XmlElementNode *serialize(std::string name) const override;
-	//void deserialize(const Xml::XmlElementNode *node);
+	void deserialize(const Xml::XmlElementNode *node);
 
 private :
 	std::string name;

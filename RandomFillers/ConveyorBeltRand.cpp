@@ -17,7 +17,7 @@ ConveyorBeltRand::ConveyorBeltRand()
 
 	switch (i) {
 	case 0:
-		conveyorBelt._item = new Teddy("Richard");$
+		conveyorBelt._item = new Teddy("Richard");
 		break;
 	case 1:
 		conveyorBelt._item = new LittlePony("Billy la racaille");

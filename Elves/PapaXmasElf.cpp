@@ -11,10 +11,6 @@
 #include "../BoxStory/Box.hpp"
 #include "../BoxStory/GiftPaper.hpp"
 
-PapaXmasElf::PapaXmasElf() :
-	table(new Table()),
-	conveyorBelt(new ConveyorBelt()), eyes(new Eyes()), hand(new Hand())
-
 void PapaXmasElf::putOnTable(Object *object)
 {
 	if (!hand) {
