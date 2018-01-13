@@ -13,10 +13,10 @@ Object *ConveyorBelt::takeObject()
 		std::cerr << this->_className << " : ERROR : "
 		          << " : There is no object to be taken !"
 		          << std::endl;
-		return (NULL);
+		return (nullptr);
 	}
 	Object *tmp = this->_item;
-	this->_item = NULL;
+	this->_item = nullptr;
 	return (tmp);
 }
 
@@ -44,8 +44,9 @@ void ConveyorBelt::pressOut()
 		          << std::endl;
 		return;
 	}
+	this->_item->serialize("object");
 	delete(this->_item);
-	this->_item = NULL;
+	this->_item = nullptr;
 }
 
 IConveyorBelt *ConveyorBelt::createConveyorBelt()

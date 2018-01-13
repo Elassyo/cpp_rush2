@@ -30,7 +30,8 @@ std::string Toy::getName() const
 	return (name);
 }
 
-Xml::XmlElementNode *Toy::serialize(const std::string name) const {
+Xml::XmlElementNode *Toy::serialize(const std::string name) const
+{
 	Xml::XmlElementNode *res = Object::serialize(name);
 	res->addNode("name", this->name);
 	return (res);

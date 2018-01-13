@@ -9,6 +9,7 @@
 #define CPP_RUSH2_CONVEYORBELT_HPP
 
 #include <iostream>
+#include "../Xml/IXmlSerializable.hpp"
 #include "IConveyorBelt.hpp"
 #include "../Toys/Object.hpp"
 
