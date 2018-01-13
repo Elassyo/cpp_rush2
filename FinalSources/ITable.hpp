@@ -15,9 +15,11 @@
 class ITable
 {
 public:
+	virtual ~ITable()
+	{};
+
 	virtual Object *takeObject(unsigned int) = 0;
 	virtual void putObject(Object *) = 0;
-	virtual ~Table() = 0;
 	virtual ITable *createTable() = 0;
 	std::vector<Object *> _items;
 

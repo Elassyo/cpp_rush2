@@ -8,7 +8,7 @@
 #ifndef CPP_RUSH2_CONVEYORBELT_HPP
 #define CPP_RUSH2_CONVEYORBELT_HPP
 
-#include <iostream
+#include <iostream>
 #include "../BoxStory/Object.hpp"
 #include "IConveyorBelt.hpp"
 
