@@ -1,0 +1,34 @@
+//
+// EPITECH PROJECT, 2018
+// That's the fucking cpp_rush2
+// File description:
+// i don't give a fuck that's the default header
+//
+
+#ifndef CPP_RUSH2_PAPAXMASELF_HPP
+#define CPP_RUSH2_PAPAXMASELF_HPP
+
+#include "IElf.hpp"
+#include "Hand.hpp"
+#include "Eyes.hpp"
+#include "Object.hpp"
+
+class PapaXmasElf : public IElf
+{
+public :
+	void putOnTable(Object *object) override;
+	void putOnBelt(Object *object) override;
+	void takeFromTable(unsigned int idx) override;
+	void takeFromBelt() override;
+	Object **look() override;
+	void makeGift() override;
+	bool canMakeGift() override;
+	void pushInButtonWithHand(Object *object) override;
+	void pushOutButtonWithHand() override;
+	Object *getGiftPaper() override;
+	Object *getBox() override;
+	Object *getToy() override;
+};
+
+
+#endif //CPP_RUSH2_PAPAXMASELF_HPP

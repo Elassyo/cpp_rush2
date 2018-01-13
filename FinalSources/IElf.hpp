@@ -27,7 +27,7 @@ public :
 	virtual Object **look() = 0;
 	virtual void makeGift() = 0;
 	virtual bool canMakeGift() = 0;
-	virtual void pushInButtonWithHand() = 0;
+	virtual void pushInButtonWithHand(Object *object) = 0;
 	virtual void pushOutButtonWithHand() = 0;
 	virtual Object *getGiftPaper() = 0;
 	virtual Object *getBox() = 0;
@@ -39,7 +39,7 @@ protected :
 	Eyes *eyes;
 	Hand *hand;
 	Object *heldInHand{};
-	auto backpack = new Object*[3];
+	Object **backpack = new Object*[3];
 };
 
 IElf::IElf() : table(new Table()), conveyorBelt(new ConveyorBelt()),
