@@ -5,18 +5,18 @@
 // i don't give a fuck that's the default header
 //
 
-#ifndef CPP_RUSH2_TEDDY_HPP
-#define CPP_RUSH2_TEDDY_HPP
+#ifndef CPP_RUSH2_LITTLEPONY_HPP
+#define CPP_RUSH2_LITTLEPONY_HPP
 
 #include "Toy.hpp"
 
-class Teddy : public Toy
+class LittlePony : public Toy
 {
 public :
-    Teddy(std::string name);
-    ~Teddy();
+    LittlePony(std::string name);
+    ~LittlePony();
 
     void isTaken();
 };
 
-#endif //CPP_RUSH2_TEDDY_HPP
+#endif //CPP_RUSH2_LITTLEPONY_HPP
