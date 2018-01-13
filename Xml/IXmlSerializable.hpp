@@ -8,14 +8,16 @@
 #if !defined (IXML_SERIALIZABLE_HPP_)
 	#define IXML_SERIALIZABLE_HPP_
 
+	#include <string>
+
 namespace Xml {
 
 class IXmlSerializable {
 public:
 	virtual ~IXmlSerializable() {}
 
-	virtual XmlNode serialize() const = 0;
-	virtual void deserialize(const XmlNode node) = 0;
+	virtual XmlElementNode *serialize(const std::string name) const = 0;
+	virtual void deserialize(const XmlElementNode *node) = 0;
 };
 
 } /* namespace Xml */

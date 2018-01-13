@@ -23,13 +23,19 @@ public:
 		_EOF
 	};
 
-	XmlToken(TokenType type, const std::string value);
+	XmlToken(TokenType type, const std::string value, unsigned int pos);
+	XmlToken(const XmlToken &other);
 
-	const std::string getValue() const;
+	XmlToken &operator=(const XmlToken &other);
+
+	TokenType getType() const;
+	std::string getValue() const;
+	unsigned int getPosition() const;
 
 private:
 	TokenType _type;
-	const std::string _value;
+	std::string _value;
+	unsigned int _pos;
 };
 
 } /* namespace Xml */

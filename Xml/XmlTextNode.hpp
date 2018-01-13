@@ -8,17 +8,17 @@
 #if !defined (XML_TEXT_NODE_HPP_)
 	#define XML_TEXT_NODE_HPP_
 
-	#include "XmlNode.hpp"
+	#include "AXmlNode.hpp"
 
 namespace Xml {
 
-class XmlTextNode : public XmlNode {
+class XmlTextNode : public AXmlNode {
 public:
 	XmlTextNode(const std::string value);
 
 	const std::string getValue() const;
 
-	const XmlNode *clone() const;
+	const AXmlNode *clone() const;
 	std::string toString() const;
 
 private:

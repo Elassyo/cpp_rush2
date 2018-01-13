@@ -34,6 +34,7 @@ private:
 	XmlToken text();
 
 	std::istream &_is;
+	unsigned int _pos;
 	char _current;
 	LexerState _state;
 };

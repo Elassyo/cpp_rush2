@@ -2,37 +2,37 @@
 ** EPITECH PROJECT, 2018
 ** CPP Pool Rush 2
 ** File description:
-** XmlNode interface definition
+** AXmlNode interface definition
 */
 
-#if !defined (XML_NODE_HPP_)
-	#define XML_NODE_HPP_
+#if !defined (AXML_NODE_HPP_)
+	#define AXML_NODE_HPP_
 
 	#include <ostream>
 	#include <string>
 
 namespace Xml {
 
-class XmlNode {
+class AXmlNode {
 public:
 	enum NodeType {
 		ELEMENT,
 		TEXT
 	};
 
-	virtual ~XmlNode() {}
+	virtual ~AXmlNode() {}
 
 	NodeType getType() const;
 
-	virtual const XmlNode *clone() const = 0;
+	virtual const AXmlNode *clone() const = 0;
 	virtual std::string toString() const = 0;
 
 protected:
-	XmlNode(NodeType type);
+	AXmlNode(NodeType type);
 
 	const NodeType _type;
 };
 
 } /* namespace Xml */
 
-#endif /* !defined (XML_NODE_HPP_) */
+#endif /* !defined (AXML_NODE_HPP_) */

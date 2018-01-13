@@ -9,25 +9,26 @@
 	#define XML_ELEMENT_NODE_HPP_
 
 	#include <list>
-	#include "XmlNode.hpp"
+	#include "AXmlNode.hpp"
 
 namespace Xml {
 
-class XmlElementNode : public XmlNode {
+class XmlElementNode : public AXmlNode {
 public:
 	XmlElementNode(const std::string name);
 	~XmlElementNode();
 
 	const std::string getName() const;
-	const std::list<const XmlNode*> getChildNodes() const;
+	const std::list<const AXmlNode*> getChildNodes() const;
 
-	void addNode(const XmlNode *node);
-	const XmlNode *clone() const;
+	void addNode(const AXmlNode *node);
+	void addNode(const std::string name, const std::string value);
+	const AXmlNode *clone() const;
 	std::string toString() const;
 
 private:
 	const std::string _name;
-	std::list<const XmlNode*> _childNodes;
+	std::list<const AXmlNode*> _childNodes;
 };
 
 } /* namespace Xml */
