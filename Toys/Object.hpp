@@ -13,14 +13,12 @@
 class Object
 {
 public :
-    explicit Object(std::string _name, std::string _className);
+    explicit Object(std::string _className);
     virtual ~Object();
 
-    std::string getClassName();
-    std::string getName();
+    std::string getClassName() const;
 
 private :
-    std::string name;
     std::string className;
 };
 

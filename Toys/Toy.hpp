@@ -13,8 +13,15 @@
 class Toy : public Object
 {
 public :
-    Toy(std::string _name, std::string className);
+    Toy(std::string _name, std::string _className);
     virtual ~Toy();
+
+    std::string getName() const;
+    void isTaken();
+
+private :
+    std::string className;
+    std::string name;
 };
 
 

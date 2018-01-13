@@ -6,8 +6,9 @@
 //
 
 #include "Object.hpp"
+#include "Toy.hpp"
 
-Object::Object(std::string _name, std::string _className) : name(_name), className(_className)
+Object::Object(std::string _className) : className(_className)
 {
 }
 
@@ -15,12 +16,7 @@ Object::~Object()
 {
 }
 
-std::string Object::getClassName()
+std::string Object::getClassName() const
 {
 	return (className);
-}
-
-std::string Object::getName()
-{
-	return (name);
 }
