@@ -6,17 +6,15 @@
 //
 
 #ifndef CPP_RUSH2_IELF_HPP
-#define CPP_RUSH2_IELF_HPP
+	#define CPP_RUSH2_IELF_HPP
 
+	#include "../Object.hpp"
+	#include "../RollingCarpet/Table.hpp"
+	#include "../RollingCarpet/ConveyorBelt.hpp"
+	#include "Eyes.hpp"
+	#include "Hand.hpp"
 
-#include "../Object.hpp"
-#include "../RollingCarpet/Table.hpp"
-#include "../RollingCarpet/ConveyorBelt.hpp"
-#include "Eyes.hpp"
-#include "Hand.hpp"
-
-class IElf
-{
+class IElf {
 public :
 	IElf();
 
@@ -41,10 +39,5 @@ protected :
 	Object *heldInHand{};
 	Object **backpack = new Object*[3];
 };
-
-IElf::IElf() : table(new Table()), conveyorBelt(new ConveyorBelt()),
-               eyes(new Eyes()), hand(new Hand())
-{
-}
 
 #endif //CPP_RUSH2_IELF_HPP

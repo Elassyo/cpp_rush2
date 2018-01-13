@@ -6,11 +6,9 @@
 //
 
 #ifndef CPP_RUSH2_EYES_HPP
-#define CPP_RUSH2_EYES_HPP
+	#define CPP_RUSH2_EYES_HPP
 
-class Eyes
-{
+class Eyes {
 };
-
 
 #endif //CPP_RUSH2_EYES_HPP

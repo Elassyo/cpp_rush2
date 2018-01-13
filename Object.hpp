@@ -6,13 +6,12 @@
 //
 
 #ifndef CPP_RUSH2_OBJECT_HPP
-#define CPP_RUSH2_OBJECT_HPP
+	#define CPP_RUSH2_OBJECT_HPP
 
-#include <string>
-#include "Xml/IXmlSerializable.hpp"
+	#include <string>
+	#include "Xml/IXmlSerializable.hpp"
 
-class Object : public Xml::IXmlSerializable
-{
+class Object : public Xml::IXmlSerializable {
 public :
 	explicit Object(std::string _className);
 	virtual ~Object();
@@ -25,6 +24,5 @@ public :
 protected :
 	std::string className;
 };
-
 
 #endif //CPP_RUSH2_OBJECT_HPP

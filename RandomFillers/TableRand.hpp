@@ -6,13 +6,12 @@
 //
 
 #ifndef CPP_RUSH2_TABLERAND_HPP
-#define CPP_RUSH2_TABLERAND_HPP
+	#define CPP_RUSH2_TABLERAND_HPP
 
-#include "../RollingCarpet/Table.hpp"
+	#include "../RollingCarpet/Table.hpp"
 
-class TableRand
-{
-public :
+class TableRand {
+public:
 	TableRand();
 	Table table;
 };

@@ -6,15 +6,15 @@
 */
 
 #ifndef CPP_RUSH2_WRAP_HPP
-#define CPP_RUSH2_WRAP_HPP
+	#define CPP_RUSH2_WRAP_HPP
 
-#include <iostream>
-#include "../Object.hpp"
+	#include <iostream>
+	#include "../Object.hpp"
 
-class Wrap : public Object
-{
+class Wrap : public Object {
 public:
 	Wrap(const std::string &);
+
 	bool wrapMeThat(Object &);
 	Object *openMe();
 

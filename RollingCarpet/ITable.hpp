@@ -6,17 +6,16 @@
 */
 
 #ifndef CPP_RUSH2_ITABLE_HPP
-#define CPP_RUSH2_ITABLE_HPP
+	#define CPP_RUSH2_ITABLE_HPP
 
-#include <iostream>
-#include <vector>
-#include "../Object.hpp"
+	#include <iostream>
+	#include <vector>
+	#include "../Object.hpp"
 
 class ITable
 {
 public:
-	virtual ~ITable()
-	{};
+	virtual ~ITable() {}
 
 	virtual Object *takeObject(unsigned int) = 0;
 	virtual void putObject(Object *) = 0;

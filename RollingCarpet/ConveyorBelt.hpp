@@ -6,15 +6,14 @@
 */
 
 #ifndef CPP_RUSH2_CONVEYORBELT_HPP
-#define CPP_RUSH2_CONVEYORBELT_HPP
+	#define CPP_RUSH2_CONVEYORBELT_HPP
 
-#include <iostream>
-#include "../Xml/IXmlSerializable.hpp"
-#include "IConveyorBelt.hpp"
-#include "../Object.hpp"
+	#include <iostream>
+	#include "../Xml/IXmlSerializable.hpp"
+	#include "IConveyorBelt.hpp"
+	#include "../Object.hpp"
 
-class ConveyorBelt : public IConveyorBelt
-{
+class ConveyorBelt : public IConveyorBelt {
 public:
 	Object *takeObject() override;
 	void putObject(Object *) override;
