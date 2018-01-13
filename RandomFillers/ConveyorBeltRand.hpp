@@ -10,10 +10,10 @@
 
 #include "../RollingCarpet/ConveyorBelt.hpp"
 
-class ConveyorBeltRand {
+class ConveyorBeltRand : public ConveyorBelt
+{
 public :
 	ConveyorBeltRand();
-	ConveyorBelt conveyorBelt;
 };
 
 #endif //CPP_RUSH2_CONVEYORBELTRAND_HPP

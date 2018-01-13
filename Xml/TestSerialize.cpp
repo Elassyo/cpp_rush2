@@ -6,7 +6,7 @@
 #include "../BoxStory/Box.hpp"
 #include "../Toys/Teddy.hpp"
 #include "../BoxStory/GiftPaper.hpp"
-
+/*
 int main()
 {
 	Teddy teddy("LOOOOL 4HEAD");
@@ -17,4 +17,4 @@ int main()
 	ConveyorBelt belt;
 	belt.putObject(&giftPaper);
 	belt.pressOut();
-}
+}*/

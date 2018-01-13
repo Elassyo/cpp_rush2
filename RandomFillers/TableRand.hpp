@@ -10,11 +10,10 @@
 
 #include "../RollingCarpet/Table.hpp"
 
-class TableRand
+class TableRand : public Table
 {
 public :
 	TableRand();
-	Table table;
 };
 
 #endif //CPP_RUSH2_TABLERAND_HPP

@@ -16,11 +16,11 @@ ConveyorBeltRand::ConveyorBeltRand()
 	long i = (random() % 4);
 
 	if (i == 0)
-		conveyorBelt._item = new Teddy("Richard");
+		_item = new Teddy("Richard");
 	if (i == 1)
-		conveyorBelt._item = new LittlePony("Billy la racaille");
+		_item = new LittlePony("Billy la racaille");
 	if (i == 2)
-		conveyorBelt._item = new GiftPaper();
+		_item = new GiftPaper();
 	if (i == 3)
-		conveyorBelt._item = new Box();
+		_item = new Box();
 }
