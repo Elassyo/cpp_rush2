@@ -18,7 +18,7 @@ Object **MyUnitTests()
 	array[1] = new Teddy("cuddles");
 	return (array);
 }
-/*
+
 int main()
 {
 	Object **array = MyUnitTests();
@@ -34,4 +34,3 @@ int main()
 	delete[] array;
 	return (0);
 }
-*/
