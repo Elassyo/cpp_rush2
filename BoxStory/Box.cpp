@@ -7,7 +7,8 @@
 
 #include "Box.hpp"
 
-Box::Box() : Wrap("Box")
+Box::Box() :
+	Wrap("Box")
 {
 }
 
