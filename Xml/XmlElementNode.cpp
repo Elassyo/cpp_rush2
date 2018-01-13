@@ -31,6 +31,16 @@ const std::list<const Xml::XmlNode*> Xml::XmlElementNode::getChildNodes() const
 	return (this->_childNodes);
 }
 
+const Xml::XmlNode *Xml::XmlElementNode::clone() const
+{
+	auto res = new XmlElementNode(this->_name);
+	std::list<const XmlNode*>::const_iterator it;
+	for (it = this->_childNodes.begin(); it != this->_childNodes.end();
+		it++)
+		res->addNode((*it)->clone());
+	return (res);
+}
+
 void Xml::XmlElementNode::addNode(const XmlNode *node)
 {
 	this->_childNodes.push_back(node);

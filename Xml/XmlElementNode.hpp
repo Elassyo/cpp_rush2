@@ -22,6 +22,7 @@ public:
 	const std::list<const XmlNode*> getChildNodes() const;
 
 	void addNode(const XmlNode *node);
+	const XmlNode *clone() const;
 	std::string toString() const;
 
 private:

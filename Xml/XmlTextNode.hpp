@@ -18,6 +18,7 @@ public:
 
 	const std::string getValue() const;
 
+	const XmlNode *clone() const;
 	std::string toString() const;
 
 private:

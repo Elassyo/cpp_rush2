@@ -24,6 +24,7 @@ public:
 
 	NodeType getType() const;
 
+	virtual const XmlNode *clone() const = 0;
 	virtual std::string toString() const = 0;
 
 protected:
