@@ -6,7 +6,7 @@
 //
 
 #include <iostream>
-#include "../Toys/Object.hpp"
+#include "../Object.hpp"
 #include "PapaXmasElf.hpp"
 #include "../BoxStory/Box.hpp"
 #include "../BoxStory/GiftPaper.hpp"

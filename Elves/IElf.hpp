@@ -9,7 +9,7 @@
 #define CPP_RUSH2_IELF_HPP
 
 
-#include "../Toys/Object.hpp"
+#include "../Object.hpp"
 #include "../RollingCarpet/Table.hpp"
 #include "../RollingCarpet/ConveyorBelt.hpp"
 #include "Eyes.hpp"

@@ -11,7 +11,7 @@
 #include <iostream>
 #include "../Xml/IXmlSerializable.hpp"
 #include "IConveyorBelt.hpp"
-#include "../Toys/Object.hpp"
+#include "../Object.hpp"
 
 class ConveyorBelt : public IConveyorBelt
 {
