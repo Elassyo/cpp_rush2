@@ -10,6 +10,7 @@
 #include "PapaXmasElf.hpp"
 #include "../BoxStory/Box.hpp"
 #include "../BoxStory/GiftPaper.hpp"
+#include "../Toys/Toy.hpp"
 
 void PapaXmasElf::putOnTable(Object *object)
 {
@@ -45,47 +46,51 @@ void PapaXmasElf::putOnBelt(Object *object)
 	conveyorBelt->putObject(object);
 }
 
-void PapaXmasElf::takeFromTable(unsigned int idx)
+Object *PapaXmasElf::takeFromTable(unsigned int idx)
 {
 	if (!hand) {
 		std::cerr << "PapaXmasElf: OH GOD WHERE ARE MY HANDS ?!" <<
 			std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'hand' is NULL" << std::endl;
-		return;
+		return (NULL);
 	}
 	if (!table) {
 		std::cerr << "PapaXmasElf: Where be me table ?!" << std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'table' is NULL" << std::endl;
-		return;
+		return (NULL);
 	}
-	if (table->_items[idx])
+	if (table->_items[idx]->getClassName() == "GiftPaper"
+	    || table->_items[idx]->getClassName() == "Box")
 		std::cout << "Whistles while working" << std::endl;
-	heldInHand = table->takeObject(idx);
+	return (table->takeObject(idx));
 }
 
-void PapaXmasElf::takeFromBelt()
+Object *PapaXmasElf::takeFromBelt()
 {
 	if (!hand) {
 		std::cerr << "PapaXmasElf: OH GOD WHERE ARE MY HANDS ?!" <<
 			std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'hand' is NULL" << std::endl;
-		return;
+		return (NULL);
 	}
 	if (!conveyorBelt) {
 		std::cerr << "PapaXmasElf: Did sumun' steal me damn (conveyor)"
 			" belt again ?!" << std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'table' is NULL" << std::endl;
-		return;
+		return (NULL);
 	}
-	if (conveyorBelt->_item)
+	if (conveyorBelt->_item->getClassName() == "GiftPaper"
+		|| conveyorBelt->_item->getClassName() == "Box")
 		std::cout << "Whistles while working" << std::endl;
-	heldInHand = conveyorBelt->takeObject();
+	return (conveyorBelt->takeObject());
 }
 
 Object **PapaXmasElf::look()
 {
-	auto array = new Object*[10];
 	unsigned long count = table->_items.size();
+	auto array = new Object*[table->_items.size() + 2];
+	array[table->_items.size() + 1] = nullptr;
+	unsigned int i = 0;
 
 	if (!eyes) {
 		std::cerr << "PapaXmasElf: OH GOD SINCE WHEN AM I BLIND ?!" <<
@@ -93,44 +98,44 @@ Object **PapaXmasElf::look()
 		std::cerr << "PapaXmasElf: ERROR: 'eyes' is NULL" << std::endl;
 		return (NULL);
 	}
-	for (unsigned int i = 0; i < count; i++)
-		array[i] = table->_items[i];
+	for (i = 0; i < count; i++)
+		array[i] = table->_items.at(i);
+	array[i] = conveyorBelt->_item;
 	return (array);
 }
 
-void PapaXmasElf::makeGift()
+bool PapaXmasElf::makeGift()
 {
 	if (!table || !conveyorBelt) {
 		std::cerr << "PapaXmasElf: Oi! I'm missin' sum furniture !" <<
 			std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'table' or 'conveyorBelt'"
 			" is NULL" << std::endl;
-		return;
+		return (false);
 	}
 	if (!hand) {
 		std::cerr << "PapaXmasElf: OH GOD WHERE ARE MY HANDS ?!" <<
 			std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'hand' is NULL" << std::endl;
-		return;
+		return (false);
 	}
 	if (!canMakeGift()) {
-		std::cerr << "PapaXmasElf: Oi! There ain't nuff stuff on me"
+		std::cerr << "PapaXmasElf: Oi! There ain't 'nuff stuff on me"
 			" table fer a gift !" << std::endl;
 		std::cerr << "PapaXmasElf: ERROR: missing components for gift"<<
 			std::endl;
-		return;
+		return (false);
 	}
 	backpack[0] = getToy();
 	backpack[1] = getBox();
-	std::cout << "Whistles while working" << std::endl;
 	backpack[2] = getGiftPaper();
-	std::cout << "Whistles while working" << std::endl;
 	((Box *)backpack[1])->openMe();
 	((Box *)backpack[1])->wrapMeThat(*backpack[0]);
 	((Box *)backpack[1])->closeMe();
 	((GiftPaper *)backpack[2])->wrapMeThat(*backpack[1]);
 	putOnBelt(backpack[2]);
 	pushOutButtonWithHand();
+	return (true);
 }
 
 bool PapaXmasElf::canMakeGift()
@@ -144,7 +149,8 @@ bool PapaXmasElf::canMakeGift()
 			paper = true;
 		else if (conveyorBelt->_item->getClassName() == "Box")
 			box = true;
-		else if (conveyorBelt->_item->getClassName() == "Toy")
+		else if (conveyorBelt->_item->getClassName() == "Teddy"
+			|| conveyorBelt->_item->getClassName() == "LittlePony")
 			toy = true;
 	}
 	for (auto &_item : table->_items) {
@@ -152,7 +158,8 @@ bool PapaXmasElf::canMakeGift()
 			paper = true;
 		else if (_item->getClassName() == "Box")
 			box = true;
-		else if (_item->getClassName() == "Toy")
+		else if (_item->getClassName() == "Teddy"
+			|| _item->getClassName() == "LittlePony")
 			toy = true;
 	}
 	return paper && box && toy;
@@ -160,46 +167,47 @@ bool PapaXmasElf::canMakeGift()
 
 Object *PapaXmasElf::getToy()
 {
-	unsigned long count = table->_items.size();
-
-	if (conveyorBelt->_item->getClassName() == "Toy")
-		return (conveyorBelt->takeObject());
-	else
+	if (conveyorBelt->_item != nullptr)
+		if (conveyorBelt->_item->getClassName() == "Teddy"
+		    || conveyorBelt->_item->getClassName() == "LittlePony")
+			return (takeFromBelt());
+	if (table) {
+		unsigned long count = table->_items.size();
 		for (unsigned int i = 0; i < count; i++)
-			if (table->_items[i]->getClassName() == "Toy")
-				return (table->takeObject(i));
-	std::cerr << "PapaXmasElf: Where are dem damned toys ?!" << std::endl;
+			if (table->_items[i]->getClassName() == "Teddy"
+			    || table->_items[i]->getClassName() == "LittlePony")
+				return (takeFromTable(i));
+	}
 	return (NULL);
 }
 
 Object *PapaXmasElf::getBox()
 {
-	unsigned long count = table->_items.size();
-
-	if (conveyorBelt->_item->getClassName() == "Box")
-		return (conveyorBelt->takeObject());
-	else
-		for (unsigned int i = 0; i < count; i++)
+	if (conveyorBelt->_item != nullptr)
+		if (conveyorBelt->_item->getClassName() == "Box")
+			return (takeFromBelt());
+	if (table) {
+		unsigned long count = table->_items.size();
+		std::cout << count << std::endl;
+		for (unsigned int i = 0; i < count; i++) {
 			if (table->_items[i]->getClassName() == "Box")
-				return (table->takeObject(i));
-	std::cerr << "PapaXmasElf: And where am I supposed to put it ?!" <<
-		std::endl;
+				return (takeFromTable(i));
+		}
+	}
 	return (NULL);
 }
 
 Object *PapaXmasElf::getGiftPaper()
 {
-	unsigned long count = table->_items.size();
-
-	if (conveyorBelt->_item->getClassName() == "GiftPaper")
-		return (conveyorBelt->takeObject());
-	else
+	if (conveyorBelt->_item != nullptr)
+		if (conveyorBelt->_item->getClassName() == "GiftPaper")
+			return (takeFromBelt());
+	if (table) {
+		unsigned long count = table->_items.size();
 		for (unsigned int i = 0; i < count; i++)
 			if (table->_items[i]->getClassName() == "GiftPaper")
-				return (table->takeObject(i));
-	std::cerr <<
-		"PapaXmasElf: A gift ain't no good without wrappin' papeh !" <<
-		std::endl;
+				return (takeFromTable(i));
+	}
 	return (NULL);
 }
 
@@ -238,3 +246,10 @@ void PapaXmasElf::pushOutButtonWithHand()
 	}
 	hand->pushOutButton(conveyorBelt);
 }
+
+void PapaXmasElf::chainGifts()
+{
+	while (makeGift());
+	std::cout << "o'pa ere's somin' wron' in da box!" << std::endl;
+}
+

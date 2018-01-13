@@ -32,8 +32,6 @@ Object *Wrap::openMe()
 {
 	this->_isOpen = true;
 	if (!this->_object) {
-		std::cerr << className << " : ERROR : This wrap does not"
-			" contain any object !" << std::endl;
 		return (nullptr);
 	}
 	return (this->_object);

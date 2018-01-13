@@ -6,6 +6,7 @@
 */
 
 #include "Table.hpp"
+#include "../Toys/Toy.hpp"
 
 Table::~Table()
 {
@@ -20,6 +21,8 @@ Object *Table::takeObject(unsigned int idx)
 			" is in another castle !" << std::endl;
 		return (NULL);
 	}
+	if (_items[idx]->getClassName() == "Teddy" || _items[idx]->getClassName() == "LittlePony")
+		((Toy *)_items[idx])->isTaken();
 	tmp = this->_items.at(idx);
 	this->_items.erase(this->_items.begin() + idx);
 	return (tmp);
