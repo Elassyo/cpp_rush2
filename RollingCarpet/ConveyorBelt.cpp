@@ -6,6 +6,7 @@
 */
 
 #include "ConveyorBelt.hpp"
+#include "../Toys/Toy.hpp"
 
 Object *ConveyorBelt::takeObject()
 {
@@ -14,6 +15,8 @@ Object *ConveyorBelt::takeObject()
 			" to be taken !" << std::endl;
 		return (nullptr);
 	}
+	if (_item->getClassName() == "Teddy" || _item->getClassName() == "LittlePony")
+		((Toy *)_item)->isTaken();
 	Object *tmp = this->_item;
 	this->_item = nullptr;
 	return (tmp);
