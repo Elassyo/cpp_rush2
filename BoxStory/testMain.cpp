@@ -27,7 +27,7 @@ Object *MyUnitTests(Object **items)
 	((GiftPaper *)(items[2]))->wrapMeThat(*items[1]);
 	return (items[2]);
 }
-
+/*
 int main()
 {
 	auto items = new Object*[4];
@@ -37,4 +37,4 @@ int main()
 	items[3] = NULL;
 	std::cout << "test beginning" << std::endl;
 	MyUnitTests(items);
-}
+}*/

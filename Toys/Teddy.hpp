@@ -16,7 +16,7 @@ public :
     Teddy(std::string name);
     ~Teddy();
 
-    static void isTaken();
+    void isTaken();
 };
 
 #endif //CPP_RUSH2_TEDDY_HPP

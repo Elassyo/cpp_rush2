@@ -44,7 +44,8 @@ void ConveyorBelt::pressOut()
 		          << std::endl;
 		return;
 	}
-	this->_item->serialize("object");
+	std::cout << "please dont fuck up please please" << std::endl;
+	std::cout << this->_item->serialize("object")->toString() << std::endl;
 	delete(this->_item);
 	this->_item = nullptr;
 }
