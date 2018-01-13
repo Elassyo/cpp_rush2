@@ -23,7 +23,6 @@ SRC		=	Object.cpp					\
 			BoxStory/Wrap.cpp				\
 			BoxStory/GiftPaper.cpp				\
 			Elves/Hand.cpp					\
-			Elves/IElf.cpp					\
 			Elves/PapaXmasElf.cpp				\
 			RandomFillers/ConveyorBeltRand.cpp		\
 			RandomFillers/TableRand.cpp			\
