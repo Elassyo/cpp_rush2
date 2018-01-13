@@ -9,8 +9,7 @@
 #define CPP_RUSH2_WRAP_HPP
 
 #include <iostream>
-#include "Teddy.hpp"
-#include "LittlePony.hpp"
+#include "../Toys/Object.hpp"
 
 class Wrap : public Object
 {

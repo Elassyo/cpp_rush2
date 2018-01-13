@@ -9,9 +9,6 @@
 #define CPP_RUSH2_PAPAXMASELF_HPP
 
 #include "IElf.hpp"
-#include "Hand.hpp"
-#include "Eyes.hpp"
-#include "Object.hpp"
 
 class PapaXmasElf : public IElf
 {
@@ -23,7 +20,7 @@ public :
 	Object **look() override;
 	void makeGift() override;
 	bool canMakeGift() override;
-	void pushInButtonWithHand() override;
+	void pushInButtonWithHand(Object *object) override;
 	void pushOutButtonWithHand() override;
 	Object *getGiftPaper() override;
 	Object *getBox() override;

@@ -8,12 +8,12 @@
 #ifndef CPP_RUSH2_IELF_HPP
 #define CPP_RUSH2_IELF_HPP
 
-#include "Object.hpp"
-#include "Hand.hpp"
+
+#include "../Toys/Object.hpp"
+#include "../RollingCarpet/Table.hpp"
+#include "../RollingCarpet/ConveyorBelt.hpp"
 #include "Eyes.hpp"
-#include "Table.hpp"
-#include "ConveyorBelt.hpp"
-#include "Toy.hpp"
+#include "Hand.hpp"
 
 class IElf
 {
@@ -27,7 +27,7 @@ public :
 	virtual Object **look() = 0;
 	virtual void makeGift() = 0;
 	virtual bool canMakeGift() = 0;
-	virtual void pushInButtonWithHand() = 0;
+	virtual void pushInButtonWithHand(Object *object) = 0;
 	virtual void pushOutButtonWithHand() = 0;
 	virtual Object *getGiftPaper() = 0;
 	virtual Object *getBox() = 0;
@@ -39,7 +39,7 @@ protected :
 	Eyes *eyes;
 	Hand *hand;
 	Object *heldInHand{};
-	auto backpack = new Object*[3];
+	Object **backpack = new Object*[3];
 };
 
 IElf::IElf() : table(new Table()), conveyorBelt(new ConveyorBelt()),

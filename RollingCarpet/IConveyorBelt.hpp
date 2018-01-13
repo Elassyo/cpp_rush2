@@ -9,7 +9,7 @@
 #define CPP_RUSH2_ICONVEYORBELT_HPP
 
 #include <iostream>
-#include "../BoxStory/Object.hpp"
+#include "../Toys/Object.hpp"
 
 class IConveyorBelt
 {
