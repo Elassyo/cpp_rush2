@@ -1,14 +1,14 @@
 //
 // EPITECH PROJECT, 2018
-// That's the fucking cpp_rush2
+// Project : cpp_rush2
 // File description:
-// i don't give a fuck that's the default header
+// Default header for project cpp_rush2
 //
 
 #include <iostream>
 #include "Object.hpp"
 #include "LittlePony.hpp"
-#include "../Elves/Teddy.hpp"
+#include "Teddy.hpp"
 
 Object **MyUnitTests()
 {
@@ -18,7 +18,7 @@ Object **MyUnitTests()
 	array[1] = new Teddy("cuddles");
 	return (array);
 }
-
+/*
 int main()
 {
 	Object **array = MyUnitTests();
@@ -34,3 +34,4 @@ int main()
 	delete[] array;
 	return (0);
 }
+*/

@@ -9,7 +9,6 @@
 
 Wrap::Wrap(const std::string &className) : Object(className)
 {
-	std::cout << "whistles while working" << std::endl;
 }
 
 bool Wrap::wrapMeThat(Object &object)
@@ -20,25 +19,37 @@ bool Wrap::wrapMeThat(Object &object)
 		return (true);
 	}
 	if (this->_object)
-		std::cerr << className << " : ERROR : "
-		          << " : This wrap already contains an object !"
+		std::cerr << className << " : ERROR : This wrap already contains an object !"
 		          << std::endl;
 	if (!this->_isOpen && this->getClassName() == "Box")
-		std::cerr << className << " : ERROR : "
-		          << " : This wrap is closed !" << std::endl;
+		std::cerr << className << " : ERROR : This wrap is closed !" << std::endl;
 	return (false);
 }
 
 Object *Wrap::openMe()
 {
-	Object *tmp = this->_object;
-	if (!this->_object && this->_isOpen) {
-		std::cerr << className << " : ERROR : "
-		          << " : This wrap does not contain any object and"
-		          << " is already open !" << std::endl;
-		return (NULL);
-	}
 	this->_isOpen = true;
-	this->_object = NULL;
-	return (tmp);
+	if (!this->_object) {
+		std::cerr << className << " : ERROR"
+		          << " : This wrap does not contain any object !"
+		          << std::endl;
+		return (nullptr);
+	}
+	return (this->_object);
+}
+
+Xml::XmlElementNode *Wrap::serialize(const std::string name) const
+{
+	Xml::XmlElementNode *res = Object::serialize(name);
+	if (this->_isOpen)
+		res->addNode("_isOpen", "true");
+	else
+		res->addNode("_isOpen", "false");
+	if (this->_object) {
+		Xml::XmlElementNode *contentNode =
+			_object->serialize("object");
+		res->addNode(contentNode);
+	}
+	return (res);
+
 }

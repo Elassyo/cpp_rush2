@@ -10,8 +10,8 @@
 
 #include <iostream>
 #include <vector>
-#include "../BoxStory/Object.hpp"
 #include "ITable.hpp"
+#include "../Toys/Object.hpp"
 
 class Table : public ITable
 {

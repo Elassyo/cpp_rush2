@@ -1,22 +1,22 @@
 //
 // EPITECH PROJECT, 2018
-// That's the fucking cpp_rush2
+// Project : cpp_rush2
 // File description:
-// i don't give a fuck that's the default header
+// Default header for project cpp_rush2
 //
 
 #ifndef CPP_RUSH2_LITTLEPONY_HPP
 #define CPP_RUSH2_LITTLEPONY_HPP
 
-#include "../Elves/Toy.hpp"
+#include "Toy.hpp"
 
 class LittlePony : public Toy
 {
 public :
-	LittlePony(std::string name);
-	~LittlePony();
+    LittlePony(std::string name);
+    ~LittlePony();
 
-	void isTaken();
+    void isTaken();
 };
 
 #endif //CPP_RUSH2_LITTLEPONY_HPP

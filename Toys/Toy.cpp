@@ -1,8 +1,8 @@
 //
 // EPITECH PROJECT, 2018
-// That's the fucking cpp_rush2
+// Project : cpp_rush2
 // File description:
-// i don't give a fuck that's the default header
+// Default header for project cpp_rush2
 //
 
 #include "Toy.hpp"
@@ -28,4 +28,11 @@ void Toy::isTaken()
 std::string Toy::getName() const
 {
 	return (name);
+}
+
+Xml::XmlElementNode *Toy::serialize(const std::string name) const
+{
+	Xml::XmlElementNode *res = Object::serialize(name);
+	res->addNode("name", this->name);
+	return (res);
 }

@@ -1,8 +1,8 @@
 //
 // EPITECH PROJECT, 2018
-// That's the fucking cpp_rush2
+// Project : cpp_rush2
 // File description:
-// i don't give a fuck that's the default header
+// Default header for project cpp_rush2
 //
 
 #ifndef CPP_RUSH2_TEDDY_HPP
@@ -16,7 +16,7 @@ public :
     Teddy(std::string name);
     ~Teddy();
 
-    static void isTaken();
+    void isTaken();
 };
 
 #endif //CPP_RUSH2_TEDDY_HPP

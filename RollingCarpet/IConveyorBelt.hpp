@@ -9,7 +9,7 @@
 #define CPP_RUSH2_ICONVEYORBELT_HPP
 
 #include <iostream>
-#include "../BoxStory/Object.hpp"
+#include "../Toys/Object.hpp"
 
 class IConveyorBelt
 {
@@ -19,7 +19,7 @@ public:
 	virtual void pressIn(Object *object) = 0;
 	virtual void pressOut() = 0;
 	virtual IConveyorBelt *createConveyorBelt() = 0;
-	Object *_item = nullptr;
+	Object *_item = NULL;
 
 private:
 	std::string _className;
