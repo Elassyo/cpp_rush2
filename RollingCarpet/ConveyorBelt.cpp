@@ -10,9 +10,8 @@
 Object *ConveyorBelt::takeObject()
 {
 	if (!this->_item) {
-		std::cerr << this->_className << " : ERROR : "
-		          << " : There is no object to be taken !"
-		          << std::endl;
+		std::cerr << this->_className << " : ERROR : There is no object"
+			" to be taken !" << std::endl;
 		return (nullptr);
 	}
 	Object *tmp = this->_item;
@@ -23,10 +22,9 @@ Object *ConveyorBelt::takeObject()
 void ConveyorBelt::putObject(Object *object)
 {
 	if (this->_item) {
-		std::cerr << this->_className << " : ERROR : "
-		          << "There is already an object here !"
-		          << std::endl;
-		return ;
+		std::cerr << this->_className << " : ERROR : There is already"
+			" an object here !" << std::endl;
+		return;
 	}
 	this->_item = object;
 }
@@ -39,9 +37,8 @@ void ConveyorBelt::pressIn(Object *object)
 void ConveyorBelt::pressOut()
 {
 	if (!this->_item) {
-		std::cerr << this->_className << " : ERROR : "
-		          << " : There is no object to be sent to Santa !"
-		          << std::endl;
+		std::cerr << this->_className << " : ERROR : There is no object"
+			" to be sent to Santa !" << std::endl;
 		return;
 	}
 	std::cout << this->_item->serialize("Gift")->toString() << std::endl;

@@ -9,7 +9,8 @@
 #include "Teddy.hpp"
 #include "LittlePony.hpp"
 
-Toy::Toy(std::string _name, std::string className) : Object(className), name(_name)
+Toy::Toy(std::string _name, std::string className) :
+	Object(className), name(_name)
 {
 }
 

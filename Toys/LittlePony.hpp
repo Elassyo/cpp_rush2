@@ -6,17 +6,16 @@
 //
 
 #ifndef CPP_RUSH2_LITTLEPONY_HPP
-#define CPP_RUSH2_LITTLEPONY_HPP
+	#define CPP_RUSH2_LITTLEPONY_HPP
 
-#include "Toy.hpp"
+	#include "Toy.hpp"
 
-class LittlePony : public Toy
-{
+class LittlePony : public Toy {
 public :
-    LittlePony(std::string name);
-    ~LittlePony();
+	LittlePony(std::string name);
+	~LittlePony();
 
-    void isTaken();
+	void isTaken();
 };
 
 #endif //CPP_RUSH2_LITTLEPONY_HPP

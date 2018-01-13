@@ -8,17 +8,15 @@
 #ifndef CPP_RUSH2_HAND_HPP
 #define CPP_RUSH2_HAND_HPP
 
-#include "../RollingCarpet/ConveyorBelt.hpp"
+	#include "../RollingCarpet/ConveyorBelt.hpp"
 
-class Hand
-{
+class Hand {
 public :
 	Hand();
 	~Hand();
 
 	void pushInButton(ConveyorBelt *conveyorBelt, Object *object);
 	void pushOutButton(ConveyorBelt *conveyorBelt);
-
 };
 
 #endif //CPP_RUSH2_HAND_HPP

@@ -6,15 +6,14 @@
 */
 
 #ifndef CPP_RUSH2_TABLE_HPP
-#define CPP_RUSH2_TABLE_HPP
+	#define CPP_RUSH2_TABLE_HPP
 
-#include <iostream>
-#include <vector>
-#include "ITable.hpp"
-#include "../Object.hpp"
+	#include <iostream>
+	#include <vector>
+	#include "ITable.hpp"
+	#include "../Object.hpp"
 
-class Table : public ITable
-{
+class Table : public ITable {
 public:
 	Object *takeObject(unsigned int) override;
 	void putObject(Object *) override;

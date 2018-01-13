@@ -7,6 +7,7 @@
 
 #include "GiftPaper.hpp"
 
-GiftPaper::GiftPaper() : Wrap("GiftPaper")
+GiftPaper::GiftPaper() :
+	Wrap("GiftPaper")
 {
 }
