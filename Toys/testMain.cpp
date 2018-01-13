@@ -6,7 +6,7 @@
 //
 
 #include <iostream>
-#include "Object.hpp"
+#include "../Object.hpp"
 #include "LittlePony.hpp"
 #include "Teddy.hpp"
 

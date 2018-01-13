@@ -9,7 +9,7 @@
 #define CPP_RUSH2_OBJECT_HPP
 
 #include <string>
-#include "../Xml/IXmlSerializable.hpp"
+#include "Xml/IXmlSerializable.hpp"
 
 class Object : public Xml::IXmlSerializable
 {

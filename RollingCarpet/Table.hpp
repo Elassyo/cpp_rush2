@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 #include "ITable.hpp"
-#include "../Toys/Object.hpp"
+#include "../Object.hpp"
 
 class Table : public ITable
 {

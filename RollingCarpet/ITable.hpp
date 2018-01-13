@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../Toys/Object.hpp"
+#include "../Object.hpp"
 
 class ITable
 {

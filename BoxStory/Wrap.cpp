@@ -42,10 +42,7 @@ Object *Wrap::openMe()
 Xml::XmlElementNode *Wrap::serialize(const std::string name) const
 {
 	Xml::XmlElementNode *res = Object::serialize(name);
-	if (this->_isOpen)
-		res->addNode("_isOpen", "true");
-	else
-		res->addNode("_isOpen", "false");
+	res->addNode("open", this->_isOpen ? "true" : "false");
 	if (this->_object) {
 		Xml::XmlElementNode *contentNode =
 			_object->serialize("object");
