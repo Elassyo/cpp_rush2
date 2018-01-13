@@ -6,12 +6,11 @@
 //
 
 #ifndef CPP_RUSH2_TOY_HPP
-#define CPP_RUSH2_TOY_HPP
+	#define CPP_RUSH2_TOY_HPP
 
-#include "../Object.hpp"
+	#include "../Object.hpp"
 
-class Toy : public Object
-{
+class Toy : public Object {
 public :
 	Toy(std::string _name, std::string _className);
 	virtual ~Toy();
@@ -20,7 +19,7 @@ public :
 	virtual void isTaken();
 
 	Xml::XmlElementNode *serialize(std::string name) const override;
-	//void deserialize(const Xml::XmlElementNode *node);
+	void deserialize(const Xml::XmlElementNode *node);
 
 private :
 	std::string name;

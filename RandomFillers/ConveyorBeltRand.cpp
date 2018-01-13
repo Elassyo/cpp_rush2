@@ -13,14 +13,19 @@
 
 ConveyorBeltRand::ConveyorBeltRand()
 {
-	long i = (random() % 4);
+	int i = (int)random() % 4;
 
-	if (i == 0)
+	switch (i) {
+	case 0:
 		_item = new Teddy("Richard");
-	if (i == 1)
+		break;
+	case 1:
 		_item = new LittlePony("Billy la racaille");
-	if (i == 2)
+		break;
+	case 2:
 		_item = new GiftPaper();
-	if (i == 3)
+		break;
+	default:
 		_item = new Box();
+	}
 }

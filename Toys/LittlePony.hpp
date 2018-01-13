@@ -6,17 +6,18 @@
 //
 
 #ifndef CPP_RUSH2_LITTLEPONY_HPP
-#define CPP_RUSH2_LITTLEPONY_HPP
+	#define CPP_RUSH2_LITTLEPONY_HPP
 
-#include "Toy.hpp"
+	#include "Toy.hpp"
 
-class LittlePony : public Toy
-{
+class LittlePony : public Toy {
 public :
-    LittlePony(std::string name);
-    ~LittlePony();
+	LittlePony(std::string name);
 
-    void isTaken();
+	Object *clone() const;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
+
+	void isTaken();
 };
 
 #endif //CPP_RUSH2_LITTLEPONY_HPP

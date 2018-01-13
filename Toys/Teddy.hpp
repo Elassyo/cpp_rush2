@@ -6,17 +6,19 @@
 //
 
 #ifndef CPP_RUSH2_TEDDY_HPP
-#define CPP_RUSH2_TEDDY_HPP
+	#define CPP_RUSH2_TEDDY_HPP
 
-#include "Toy.hpp"
+	#include "Toy.hpp"
 
-class Teddy : public Toy
-{
+class Teddy : public Toy {
 public :
-    Teddy(std::string name);
-    ~Teddy();
+	Teddy(std::string name);
+	~Teddy();
 
-    void isTaken();
+	Object *clone() const;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
+
+	void isTaken();
 };
 
 #endif //CPP_RUSH2_TEDDY_HPP

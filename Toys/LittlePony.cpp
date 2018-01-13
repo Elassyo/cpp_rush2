@@ -8,15 +8,21 @@
 #include <iostream>
 #include "LittlePony.hpp"
 
-LittlePony::LittlePony(std::string name) : Toy(name, "LittlePony")
-{
-}
-
-LittlePony::~LittlePony()
+LittlePony::LittlePony(std::string name) :
+	Toy(name, "LittlePony")
 {
 }
 
 void LittlePony::isTaken()
 {
 	std::cout << "yo man" << std::endl;
+}
+
+Object *LittlePony::clone() const
+{
+	return (NULL);
+}
+
+void LittlePony::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
 }

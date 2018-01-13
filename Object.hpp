@@ -6,25 +6,24 @@
 //
 
 #ifndef CPP_RUSH2_OBJECT_HPP
-#define CPP_RUSH2_OBJECT_HPP
+	#define CPP_RUSH2_OBJECT_HPP
 
-#include <string>
-#include "Xml/IXmlSerializable.hpp"
+	#include <string>
+	#include "Xml/IXmlSerializable.hpp"
 
-class Object : public Xml::IXmlSerializable
-{
+class Object : public Xml::IXmlSerializable {
 public :
 	explicit Object(std::string _className);
 	virtual ~Object();
 
-	Xml::XmlElementNode *serialize(std::string name) const override ;
-//	virtual void deserialize(const Xml::XmlElementNode *node) override ;
+	virtual Object *clone() const = 0;
+	Xml::XmlElementNode *serialize(std::string name) const override;
+	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
 	const std::string &getClassName() const;
 
 protected :
 	std::string className;
 };
-
 
 #endif //CPP_RUSH2_OBJECT_HPP

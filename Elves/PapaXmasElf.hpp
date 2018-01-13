@@ -10,9 +10,8 @@
 
 #include "IElf.hpp"
 
-class PapaXmasElf : public IElf
-{
-public :
+class PapaXmasElf : public IElf {
+public:
 	void putOnTable(Object *object) override;
 	void putOnBelt(Object *object) override;
 	void takeFromTable(unsigned int idx) override;

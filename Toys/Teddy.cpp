@@ -8,7 +8,8 @@
 #include <iostream>
 #include "Teddy.hpp"
 
-Teddy::Teddy(std::string name) : Toy(name, "Teddy")
+Teddy::Teddy(std::string name) :
+	Toy(name, "Teddy")
 {
 }
 
@@ -19,4 +20,13 @@ Teddy::~Teddy()
 void Teddy::isTaken()
 {
 	std::cout << "gra hu" << std::endl;
+}
+
+Object *Teddy::clone() const
+{
+	return (NULL);
+}
+
+void Teddy::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
+{
 }

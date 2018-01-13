@@ -16,9 +16,8 @@ Object *Table::takeObject(unsigned int idx)
 {
 	Object *tmp;
 	if (idx >= this->_items.size()) {
-		std::cerr << _className
-		          << " : The object you're trying to take is "
-		          << "in another castle !" << std::endl;
+		std::cerr << _className << " : The object you're trying to take"
+			" is in another castle !" << std::endl;
 		return (NULL);
 	}
 	tmp = this->_items.at(idx);
@@ -30,8 +29,8 @@ void Table::putObject(Object *object)
 {
 	this->_items.push_back(object);
 	if (this->_items.size() >= 11) {
-		std::cerr << _className
-		          << " : Oh no ! The table collapses !" << std::endl;
+		std::cerr << _className << " : Oh no ! The table collapses !" <<
+			std::endl;
 		delete (this);
 		return;
 	}
