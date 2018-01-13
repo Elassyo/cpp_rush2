@@ -6,6 +6,7 @@
 */
 
 #include <cctype>
+#include <sstream>
 #include "XmlException.hpp"
 #include "XmlLexer.hpp"
 
@@ -25,14 +26,15 @@ Xml::XmlToken Xml::XmlLexer::getNextToken()
 			return (this->text());
 	}
 	else if (this->_state == TAG) {
-		if (this->_current == '/')
-			return (this->tagTerminator());
-		else if (this->_current == '>')
+		if (this->_current == '>')
 			return (this->tagEnd());
 		else if (isalpha(this->_current) || this->_current == '_')
 			return (this->tagName());
 	}
-	throw Xml::XmlException("Invalid character");
+	std::ostringstream oss;
+	oss << "Invalid character '" << this->_current << "' (" << this->_pos <<
+		")";
+	throw Xml::XmlException(oss.str());
 }
 
 void Xml::XmlLexer::advance()
@@ -46,14 +48,15 @@ Xml::XmlToken Xml::XmlLexer::tagBegin()
 	unsigned int startingPos = this->_pos;
 	this->advance();
 	this->_state = TAG;
-	return (Xml::XmlToken(Xml::XmlToken::TAG_BEGIN, "<", startingPos));
-}
-
-Xml::XmlToken Xml::XmlLexer::tagTerminator()
-{
-	unsigned int startingPos = this->_pos;
-	this->advance();
-	return (Xml::XmlToken(Xml::XmlToken::TAG_TERMINATOR, "/", startingPos));
+	if (this->_current == '/') {
+		this->advance();
+		return (Xml::XmlToken(Xml::XmlToken::TAG_TERMINATOR, "</",
+			startingPos));
+	}
+	else {
+		return (Xml::XmlToken(Xml::XmlToken::TAG_BEGIN, "<",
+			startingPos));
+	}
 }
 
 Xml::XmlToken Xml::XmlLexer::tagName()
