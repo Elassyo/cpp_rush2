@@ -13,15 +13,17 @@
 class Toy : public Object
 {
 public :
-    Toy(std::string _name, std::string _className);
-    virtual ~Toy();
+	Toy(std::string _name, std::string _className);
+	virtual ~Toy();
 
-    std::string getName() const;
-    virtual void isTaken();
+	std::string getName() const;
+	virtual void isTaken();
+
+	Xml::XmlElementNode *serialize(std::string name) const override;
+	//void deserialize(const Xml::XmlElementNode *node);
 
 private :
-    std::string className;
-    std::string name;
+	std::string name;
 };
 
 

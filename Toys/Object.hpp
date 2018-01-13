@@ -9,17 +9,21 @@
 #define CPP_RUSH2_OBJECT_HPP
 
 #include <string>
+#include "../Xml/IXmlSerializable.hpp"
 
-class Object
+class Object : public Xml::IXmlSerializable
 {
 public :
-    explicit Object(std::string _className);
-    virtual ~Object();
+	explicit Object(std::string _className);
+	virtual ~Object();
 
-    const std::string &getClassName() const;
+	Xml::XmlElementNode *serialize(std::string name) const override ;
+//	virtual void deserialize(const Xml::XmlElementNode *node) override ;
+
+	const std::string &getClassName() const;
 
 protected :
-    std::string className;
+	std::string className;
 };
 
 

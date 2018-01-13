@@ -18,6 +18,9 @@ public:
 	bool wrapMeThat(Object &);
 	Object *openMe();
 
+	Xml::XmlElementNode *serialize(std::string name) const override;
+	//void deserialize(const Xml::XmlElementNode *node);
+
 protected:
 	bool _isOpen = true;
 	Object *_object = NULL;

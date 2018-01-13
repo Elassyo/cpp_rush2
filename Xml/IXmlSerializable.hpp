@@ -9,6 +9,7 @@
 	#define IXML_SERIALIZABLE_HPP_
 
 	#include <string>
+#include "XmlElementNode.hpp"
 
 namespace Xml {
 

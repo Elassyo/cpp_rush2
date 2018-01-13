@@ -28,14 +28,28 @@ bool Wrap::wrapMeThat(Object &object)
 
 Object *Wrap::openMe()
 {
-	Object *tmp = this->_object;
-	if (!this->_object && this->_isOpen) {
+	this->_isOpen = true;
+	if (!this->_object) {
 		std::cerr << className << " : ERROR"
-		          << " : This wrap does not contain any object and"
-		          << " is already open !" << std::endl;
-		return (NULL);
+		          << " : This wrap does not contain any object !"
+		          << std::endl;
+		return (nullptr);
 	}
-	this->_isOpen = NULL;
-	this->_object = NULL;
-	return (tmp);
+	return (this->_object);
+}
+
+Xml::XmlElementNode *Wrap::serialize(const std::string name) const
+{
+	Xml::XmlElementNode *res = Object::serialize(name);
+	if (this->_isOpen)
+		res->addNode("_isOpen", "true");
+	else
+		res->addNode("_isOpen", "false");
+	if (this->_object) {
+		Xml::XmlElementNode *contentNode =
+			_object->serialize("object");
+		res->addNode(contentNode);
+	}
+	return (res);
+
 }
