@@ -8,7 +8,7 @@
 #include <iostream>
 #include "Object.hpp"
 #include "LittlePony.hpp"
-#include "../Elves/Teddy.hpp"
+#include "Teddy.hpp"
 
 Object **MyUnitTests()
 {

@@ -35,7 +35,7 @@ Object *Wrap::openMe()
 		          << " is already open !" << std::endl;
 		return (NULL);
 	}
-	this->_isOpen = true;
+	this->_isOpen = NULL;
 	this->_object = NULL;
 	return (tmp);
 }

@@ -84,7 +84,7 @@ Object **PapaXmasElf::look()
 	if (!eyes) {
 		std::cerr << "PapaXmasElf: OH GOD SINCE WHEN AM I BLIND ?!" << std::endl;
 		std::cerr << "PapaXmasElf: ERROR: 'eyes' is NULL" << std::endl;
-		return (nullptr);
+		return (NULL);
 	}
 	for (unsigned int i = 0; i < count; i++)
 		array[i] = table->_items[i];
@@ -157,7 +157,7 @@ Object *PapaXmasElf::getToy()
 			if (table->_items[i]->getClassName() == "Toy")
 				return (table->takeObject(i));
 	std::cerr << "PapaXmasElf: Where are dem damned toys ?!" << std::endl;
-	return (nullptr);
+	return (NULL);
 }
 
 Object *PapaXmasElf::getBox()
@@ -171,7 +171,7 @@ Object *PapaXmasElf::getBox()
 			if (table->_items[i]->getClassName() == "Box")
 				return (table->takeObject(i));
 	std::cerr << "PapaXmasElf: And where am I supposed to put it ?!" << std::endl;
-	return (nullptr);
+	return (NULL);
 }
 
 Object *PapaXmasElf::getGiftPaper()
@@ -185,7 +185,7 @@ Object *PapaXmasElf::getGiftPaper()
 			if (table->_items[i]->getClassName() == "GiftPaper")
 				return (table->takeObject(i));
 	std::cerr << "PapaXmasElf: A gift ain't no good without wrappin' papeh !" << std::endl;
-	return (nullptr);
+	return (NULL);
 }
 
 void PapaXmasElf::pushInButtonWithHand(Object *object)

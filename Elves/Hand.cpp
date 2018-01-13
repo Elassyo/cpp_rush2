@@ -6,8 +6,6 @@
 //
 
 #include "Hand.hpp"
-#include "../RollingCarpet/ConveyorBelt.hpp"
-#include "../Toys/Object.hpp"
 
 Hand::Hand()
 {

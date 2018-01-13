@@ -6,7 +6,6 @@
 //
 
 #include "Object.hpp"
-#include "Toy.hpp"
 
 Object::Object(std::string _className) : className(_className)
 {

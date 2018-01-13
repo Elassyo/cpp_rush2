@@ -8,6 +8,7 @@
 #include "Wrap.hpp"
 #include "Box.hpp"
 #include "GiftPaper.hpp"
+#include "../Toys/Teddy.hpp"
 
 Object *MyUnitTests(Object **items)
 {

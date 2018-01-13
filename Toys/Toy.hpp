@@ -17,7 +17,7 @@ public :
     virtual ~Toy();
 
     std::string getName() const;
-    void isTaken();
+    virtual void isTaken();
 
 private :
     std::string className;
