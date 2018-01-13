@@ -32,6 +32,6 @@ private:
 	const std::string _value;
 };
 
-}; /* namespace Xml */
+} /* namespace Xml */
 
 #endif /* !defined (XML_TOKEN_HPP_) */

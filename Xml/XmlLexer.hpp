@@ -11,8 +11,7 @@
 	#include <istream>
 	#include "XmlToken.hpp"
 
-namespace Xml
-{
+namespace Xml {
 
 class XmlLexer {
 public:
@@ -21,7 +20,7 @@ public:
 	XmlToken getNextToken();
 
 private:
-	enum State {
+	enum LexerState {
 		CONTENT,
 		TAG
 	};
@@ -36,9 +35,9 @@ private:
 
 	std::istream &_is;
 	char _current;
-	State _state;
+	LexerState _state;
 };
 
-};
+} /* namespace Xml */
 
 #endif /* !defined (XML_LEXER_HPP_) */
