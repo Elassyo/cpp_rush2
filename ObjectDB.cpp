@@ -5,8 +5,7 @@
 ** ObjectDB class implementation
 */
 
-#include "ObjectDB.hpp"
-
+#include "Object.hpp"
 
 #include <iostream>
 

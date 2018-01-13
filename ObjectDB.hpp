@@ -9,7 +9,8 @@
 	#define OBJECT_DB_HPP_
 
 	#include <map>
-	#include "Object.hpp"
+
+class Object;
 
 class ObjectDB {
 public:

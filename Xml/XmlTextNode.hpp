@@ -19,6 +19,7 @@ public:
 	const std::string getValue() const;
 
 	const AXmlNode *clone() const;
+	std::string innerText() const;
 	std::string toString() const;
 
 private:

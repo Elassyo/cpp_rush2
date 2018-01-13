@@ -24,6 +24,7 @@ public:
 
 	NodeType getType() const;
 
+	virtual std::string innerText() const = 0;
 	virtual const AXmlNode *clone() const = 0;
 	virtual std::string toString() const = 0;
 

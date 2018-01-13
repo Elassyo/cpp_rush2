@@ -22,6 +22,11 @@ const Xml::AXmlNode *Xml::XmlTextNode::clone() const
 	return (new XmlTextNode(this->_value));
 }
 
+std::string Xml::XmlTextNode::innerText() const
+{
+	return (this->_value);
+}
+
 std::string Xml::XmlTextNode::toString() const
 {
 	return (this->_value);

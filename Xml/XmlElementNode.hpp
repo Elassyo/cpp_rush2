@@ -20,11 +20,13 @@ public:
 	~XmlElementNode();
 
 	const std::string getName() const;
+	const XmlElementNode *getChildNode(std::string name) const;
 	const std::list<const AXmlNode*> getChildNodes() const;
 
 	void addNode(const AXmlNode *node);
 	void addNode(const std::string name, const std::string value);
 	const AXmlNode *clone() const;
+	std::string innerText() const;
 	std::string toString() const;
 	Object *deserialize(const ObjectDB *db) const;
 

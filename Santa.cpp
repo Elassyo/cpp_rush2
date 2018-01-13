@@ -5,21 +5,76 @@
 ** Santa main program
 */
 
+#include <cstring>
+#include <fstream>
 #include <iostream>
 #include "Toys/LittlePony.hpp"
 #include "Toys/Teddy.hpp"
 #include "BoxStory/Box.hpp"
 #include "BoxStory/GiftPaper.hpp"
+#include "Xml/XmlException.hpp"
+#include "Xml/XmlParser.hpp"
 #include "Object.hpp"
 #include "ObjectDB.hpp"
 
-int main()
+void inspect(Object *obj)
 {
-	std::cout << "HO HO HO" << std::endl;
+	std::cout << obj->getClassName() << std::endl;
+}
+
+int deserialize(std::istream &is) {
 	ObjectDB db;
 	db.addClass(new LittlePony("Pony"));
 	db.addClass(new Teddy("Teddy"));
-	db.addClass(new Box);
-	db.addClass(new GiftPaper);
+	db.addClass(new Box());
+	db.addClass(new GiftPaper());
+	Xml::XmlLexer lexer(is);
+	Xml::XmlParser parser(lexer);
+	try {
+		Xml::XmlElementNode *giftXml = parser.parse();
+		Object *gift = giftXml->deserialize(&db);
+		if (!gift)
+			return (1);
+		inspect(gift);
+		delete gift;
+		delete giftXml;
+		return (0);
+	}
+	catch (Xml::XmlException ex) {
+		std::cerr << "Error while parsing XML : " << ex << std::endl;
+		return (1);
+	}
+}
+
+int files(int argc, const char **argv)
+{
+	for (int i = 1; i < argc; i++) {
+		std::ifstream file(argv[i]);
+		if (!file) {
+			std::cerr << "Failed to open gift file" << std::endl;
+			return (1);
+		}
+		if (deserialize(file))
+			return (1);
+	}
+	return (0);
+}
+
+int magicSock(int argc, const char **argv)
+{
+	return (0);
+}
+
+int main(int argc, const char **argv)
+{
+	if (argc < 2) {
+		std::cerr << "usage: ./santa [GIFT] ..." << std::endl;
+		std::cerr << "       ./santa -w [ADDR]" << std::endl;
+		return (1);
+	}
+	if (strcmp(argv[1], "-w") == 0)
+		return (magicSock(argc, argv));
+	else
+		return (files(argc, argv));
 	return (0);
 }

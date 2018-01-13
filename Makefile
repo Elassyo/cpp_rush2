@@ -32,7 +32,6 @@ SRC		=	Object.cpp					\
 			Toys/Teddy.cpp					\
 			Toys/Toy.cpp					\
 			Toys/LittlePony.cpp				\
-			Toys/testMain.cpp				\
 			WarpMachine/WarpClient.cpp			\
 			WarpMachine/WarpServer.cpp			\
 			Xml/XmlToken.cpp				\

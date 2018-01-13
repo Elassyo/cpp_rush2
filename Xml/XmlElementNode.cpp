@@ -27,6 +27,19 @@ const std::string Xml::XmlElementNode::getName() const
 	return (this->_name);
 }
 
+const Xml::XmlElementNode *Xml::XmlElementNode::getChildNode(std::string name)
+	const
+{
+	for (const AXmlNode *node : this->_childNodes) {
+		if (node->getType() != AXmlNode::NodeType::ELEMENT)
+			continue;
+		const XmlElementNode *res = (const XmlElementNode *)node;
+		if (res->getName() == name)
+			return (res);
+	}
+	return (NULL);
+}
+
 const std::list<const Xml::AXmlNode*> Xml::XmlElementNode::getChildNodes() const
 {
 	return (this->_childNodes);
@@ -56,6 +69,16 @@ void Xml::XmlElementNode::addNode(const std::string name,
 	this->addNode(childNode);
 }
 
+std::string Xml::XmlElementNode::innerText() const
+{
+	std::string res = "";
+	std::list<const AXmlNode*>::const_iterator it;
+	for (it = this->_childNodes.begin(); it != this->_childNodes.end();
+		it++)
+		res += (*it)->innerText();
+	return (res);
+}
+
 std::string Xml::XmlElementNode::toString() const
 {
 	std::ostringstream oss;
@@ -66,4 +89,12 @@ std::string Xml::XmlElementNode::toString() const
 		oss << (*it)->toString();
 	oss << "</" << this->_name << ">";
 	return (oss.str());
+}
+
+Object *Xml::XmlElementNode::deserialize(const ObjectDB *db) const
+{
+	const XmlElementNode *className = this->getChildNode("className");
+	if (!className)
+		return (NULL);
+	return (db->instantiate(className->innerText()));
 }
