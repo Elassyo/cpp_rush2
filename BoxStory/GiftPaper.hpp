@@ -15,7 +15,6 @@ public:
 	GiftPaper();
 
 	Object *clone() const;
-	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 };
 
 #endif //CPP_RUSH2_GIFTPAPER_HPP

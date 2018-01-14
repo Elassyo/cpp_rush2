@@ -14,10 +14,6 @@ Toy::Toy(std::string _name, std::string className) :
 {
 }
 
-Toy::~Toy()
-{
-}
-
 void Toy::isTaken()
 {
 	if (Object::getClassName() == "Teddy")
@@ -36,4 +32,13 @@ Xml::XmlElementNode *Toy::serialize(const std::string name) const
 	Xml::XmlElementNode *res = Object::serialize(name);
 	res->addNode("name", this->name);
 	return (res);
+}
+
+void Toy::deserialize(const ObjectDB *db __attribute__((unused)),
+	const Xml::XmlElementNode *node)
+{
+	const Xml::XmlElementNode *name = node->getChildNode("name");
+	if (!name)
+		return;
+	this->name = name->innerText();
 }

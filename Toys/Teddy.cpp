@@ -13,10 +13,6 @@ Teddy::Teddy(std::string name) :
 {
 }
 
-Teddy::~Teddy()
-{
-}
-
 void Teddy::isTaken()
 {
 	std::cout << "gra hu" << std::endl;
@@ -25,8 +21,4 @@ void Teddy::isTaken()
 Object *Teddy::clone() const
 {
 	return (NULL);
-}
-
-void Teddy::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
-{
 }

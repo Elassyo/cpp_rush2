@@ -110,7 +110,7 @@ TESTOBJDIR	=
 
 CC		=	g++
 
-CPPFLAGS	=	-c -g -O2 -W -Wall -Wextra -I$(INCDIR)
+CPPFLAGS	=	-c -O2 -W -Wall -Wextra -I$(INCDIR)
 LDFLAGS		=	$(addprefix -L$(USERLIBDIR)/lib, $(USERLIB)) $(addprefix -l, $(LIB) $(USERLIB))
 
 TESTCPPFLAGS	=	-c -W -Wall -Wextra -ftest-coverage -fprofile-arcs -I$(INCDIR)

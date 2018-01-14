@@ -22,7 +22,3 @@ Object *LittlePony::clone() const
 {
 	return (NULL);
 }
-
-void LittlePony::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
-{
-}
