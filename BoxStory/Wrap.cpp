@@ -54,12 +54,15 @@ bool Wrap::deserialize(const ObjectDB *db, const Xml::XmlElementNode *node)
 {
 	const Xml::XmlElementNode *open = node->getChildNode("open");
 	const Xml::XmlElementNode *object = node->getChildNode("object");
-	if (!open || !object)
+	if (!open)
 		return false;
 	if (open->innerText() == "true")
 		this->_isOpen = true;
 	else if (open->innerText() == "false")
 		this->_isOpen = false;
-	this->_object = object->deserialize(db);
+	if (object)
+		this->_object = object->deserialize(db);
+	else
+		this->object = nullptr;
 	return (this->_object ? true : false);
 }
