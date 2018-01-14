@@ -13,10 +13,8 @@
 class Teddy : public Toy {
 public :
 	Teddy(std::string name);
-	~Teddy();
 
 	Object *clone() const;
-	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
 	void isTaken();
 };

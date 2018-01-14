@@ -22,6 +22,3 @@ Object *Box::clone() const
 	return (NULL);
 }
 
-void Box::deserialize(const ObjectDB *, const Xml::XmlElementNode *)
-{
-}
