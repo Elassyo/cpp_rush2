@@ -7,6 +7,7 @@
 
 #include <cstring>
 #include <fstream>
+#include <sstream>
 #include <iostream>
 #include "Toys/LittlePony.hpp"
 #include "Toys/Teddy.hpp"
@@ -16,13 +17,27 @@
 #include "Xml/XmlParser.hpp"
 #include "Object.hpp"
 #include "ObjectDB.hpp"
+#include "WarpMachine/WarpServer.hpp"
 
 void inspect(Object *obj)
 {
-	std::cout << obj->getClassName() << std::endl;
+	if (obj->getClassName() == "Object") {
+		std::cerr << "There shouldn't be an 'Object' Object here :-|"
+			<< std::endl;
+		return;
+	}
+	Object *inside = ((Wrap *)obj)->openMe();
+	if (inside->getClassName() == "Box"
+	    || inside->getClassName() == "GiftPaper") {
+		inspect(inside);
+		return;
+	} else {
+		((Toy *)inside)->isTaken();
+	}
 }
 
-int deserialize(std::istream &is) {
+int deserialize(std::istream &is)
+{
 	ObjectDB db;
 	db.addClass(new LittlePony("Pony"));
 	db.addClass(new Teddy("Teddy"));
@@ -62,6 +77,16 @@ int files(int argc, const char **argv)
 
 int magicSock(int argc, const char **argv)
 {
+	if (argc < 3)
+		return (1);
+	WarpServer sock(argv[2], DEFAULT_WARP_PORT);
+	sock.sendAddr();
+	for (;;) {
+		std::string mess = sock.receiveMessage();
+		std::istringstream istr(mess);
+		if (deserialize(istr))
+			return (1);
+	}
 	return (0);
 }
 

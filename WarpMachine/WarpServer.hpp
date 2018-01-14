@@ -18,6 +18,8 @@
 	#include <sys/socket.h>
 	#include <netinet/in.h>
 
+constexpr int DEFAULT_WARP_PORT = 4242;
+
 class WarpServer
 {
 public:
