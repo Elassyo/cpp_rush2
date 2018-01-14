@@ -11,7 +11,7 @@
 	#include "../Object.hpp"
 
 class Toy : public Object {
-public :
+public:
 	Toy(std::string _name, std::string _className);
 	virtual ~Toy() {}
 
@@ -19,9 +19,9 @@ public :
 	virtual void isTaken();
 
 	Xml::XmlElementNode *serialize(std::string name) const override;
-	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
+	bool deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
-private :
+protected:
 	std::string name;
 };
 

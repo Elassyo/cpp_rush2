@@ -19,6 +19,6 @@ void Box::closeMe()
 
 Object *Box::clone() const
 {
-	return (NULL);
+	return (new Box);
 }
 

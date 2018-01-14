@@ -14,5 +14,5 @@ GiftPaper::GiftPaper() :
 
 Object *GiftPaper::clone() const
 {
-	return (NULL);
+	return (new GiftPaper);
 }

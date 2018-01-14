@@ -19,7 +19,7 @@ public:
 	Object *openMe();
 
 	Xml::XmlElementNode *serialize(std::string name) const override;
-	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
+	bool deserialize(const ObjectDB *, const Xml::XmlElementNode *) override;
 
 protected:
 	bool _isOpen = true;

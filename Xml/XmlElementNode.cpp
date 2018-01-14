@@ -6,6 +6,7 @@
 */
 
 #include <sstream>
+#include "../Object.hpp"
 #include "XmlElementNode.hpp"
 #include "XmlTextNode.hpp"
 
@@ -96,5 +97,10 @@ Object *Xml::XmlElementNode::deserialize(const ObjectDB *db) const
 	const XmlElementNode *className = this->getChildNode("className");
 	if (!className)
 		return (NULL);
-	return (db->instantiate(className->innerText()));
+	Object *res = db->instantiate(className->innerText());
+	if (!res)
+		return (NULL);
+	if (!res->deserialize(db, this))
+		return (NULL);
+	return (res);
 }

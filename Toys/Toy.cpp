@@ -34,11 +34,12 @@ Xml::XmlElementNode *Toy::serialize(const std::string name) const
 	return (res);
 }
 
-void Toy::deserialize(const ObjectDB *db __attribute__((unused)),
+bool Toy::deserialize(const ObjectDB *db __attribute__((unused)),
 	const Xml::XmlElementNode *node)
 {
 	const Xml::XmlElementNode *name = node->getChildNode("name");
 	if (!name)
-		return;
+		return (false);
 	this->name = name->innerText();
+	return (true);
 }

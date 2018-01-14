@@ -50,15 +50,16 @@ Xml::XmlElementNode *Wrap::serialize(const std::string name) const
 
 }
 
-void Wrap::deserialize(const ObjectDB *db, const Xml::XmlElementNode *node)
+bool Wrap::deserialize(const ObjectDB *db, const Xml::XmlElementNode *node)
 {
 	const Xml::XmlElementNode *open = node->getChildNode("open");
 	const Xml::XmlElementNode *object = node->getChildNode("object");
 	if (!open || !object)
-		return;
+		return false;
 	if (open->innerText() == "true")
 		this->_isOpen = true;
 	else if (open->innerText() == "false")
 		this->_isOpen = false;
 	this->_object = object->deserialize(db);
+	return (this->_object ? true : false);
 }

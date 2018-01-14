@@ -11,7 +11,7 @@
 	#include "Toy.hpp"
 
 class LittlePony : public Toy {
-public :
+public:
 	LittlePony(std::string name);
 
 	Object *clone() const;

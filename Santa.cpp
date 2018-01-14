@@ -19,20 +19,24 @@
 #include "ObjectDB.hpp"
 #include "WarpMachine/WarpServer.hpp"
 
-void inspect(Object *obj)
+int inspect(Object *obj)
 {
+	if (!obj) {
+		std::cerr << "Deserialization failed :(" << std::endl;
+		return (1);
+	}
 	if (obj->getClassName() == "Object") {
 		std::cerr << "There shouldn't be an 'Object' Object here :-|"
 			<< std::endl;
-		return;
+		return (1);
 	}
 	Object *inside = ((Wrap *)obj)->openMe();
 	if (inside->getClassName() == "Box"
 	    || inside->getClassName() == "GiftPaper") {
-		inspect(inside);
-		return;
+		return (inspect(inside));
 	} else {
 		((Toy *)inside)->isTaken();
+		return (0);
 	}
 }
 
@@ -45,20 +49,18 @@ int deserialize(std::istream &is)
 	db.addClass(new GiftPaper());
 	Xml::XmlLexer lexer(is);
 	Xml::XmlParser parser(lexer);
+	int res = 1;
 	try {
 		Xml::XmlElementNode *giftXml = parser.parse();
 		Object *gift = giftXml->deserialize(&db);
-		if (!gift)
-			return (1);
-		inspect(gift);
+		res = inspect(gift);
 		delete gift;
 		delete giftXml;
-		return (0);
 	}
 	catch (Xml::XmlException ex) {
 		std::cerr << "Error while parsing XML : " << ex << std::endl;
-		return (1);
 	}
+	return (res);
 }
 
 int files(int argc, const char **argv)

@@ -20,5 +20,5 @@ void LittlePony::isTaken()
 
 Object *LittlePony::clone() const
 {
-	return (NULL);
+	return (new LittlePony(this->name));
 }

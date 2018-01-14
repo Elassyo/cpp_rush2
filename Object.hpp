@@ -18,7 +18,6 @@ public :
 
 	virtual Object *clone() const = 0;
 	virtual Xml::XmlElementNode *serialize(std::string name) const override;
-	void deserialize(const ObjectDB *, const Xml::XmlElementNode *) = 0;
 
 	const std::string &getClassName() const;
 

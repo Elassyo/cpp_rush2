@@ -20,5 +20,5 @@ void Teddy::isTaken()
 
 Object *Teddy::clone() const
 {
-	return (NULL);
+	return (new Teddy(this->name));
 }

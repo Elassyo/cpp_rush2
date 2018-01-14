@@ -20,7 +20,7 @@ public:
 	virtual ~IXmlSerializable() {}
 
 	virtual XmlElementNode *serialize(const std::string name) const = 0;
-	virtual void deserialize(const ObjectDB *, const XmlElementNode *) = 0;
+	virtual bool deserialize(const ObjectDB *, const XmlElementNode *) = 0;
 };
 
 } /* namespace Xml */
